@@ -1,0 +1,48 @@
+﻿  Vector3D.cpp
+c:\users\c00215747\documents\3d-project\3d vector and matrix project\3d vector and matrix project\vector3d.h(26): error C2801: 'Vector3D::operator +' must be a non-static member
+c:\users\c00215747\documents\3d-project\3d vector and matrix project\3d vector and matrix project\vector3d.h(27): error C2801: 'Vector3D::operator -' must be a non-static member
+c:\users\c00215747\documents\3d-project\3d vector and matrix project\3d vector and matrix project\vector3d.h(28): error C2801: 'Vector3D::operator -' must be a non-static member
+c:\users\c00215747\documents\3d-project\3d vector and matrix project\3d vector and matrix project\vector3d.h(29): error C2801: 'Vector3D::operator *' must be a non-static member
+c:\users\c00215747\documents\3d-project\3d vector and matrix project\3d vector and matrix project\vector3d.h(30): error C2801: 'Vector3D::operator *' must be a non-static member
+c:\users\c00215747\documents\3d-project\3d vector and matrix project\3d vector and matrix project\vector3d.h(31): error C2801: 'Vector3D::operator *' must be a non-static member
+c:\users\c00215747\documents\3d-project\3d vector and matrix project\3d vector and matrix project\vector3d.h(32): error C2801: 'Vector3D::operator *' must be a non-static member
+c:\users\c00215747\documents\3d-project\3d vector and matrix project\3d vector and matrix project\vector3d.h(33): error C2801: 'Vector3D::operator ^' must be a non-static member
+  Matrix3.cpp
+c:\users\c00215747\documents\3d-project\3d vector and matrix project\3d vector and matrix project\vector3d.h(26): error C2801: 'Vector3D::operator +' must be a non-static member
+c:\users\c00215747\documents\3d-project\3d vector and matrix project\3d vector and matrix project\vector3d.h(27): error C2801: 'Vector3D::operator -' must be a non-static member
+c:\users\c00215747\documents\3d-project\3d vector and matrix project\3d vector and matrix project\vector3d.h(28): error C2801: 'Vector3D::operator -' must be a non-static member
+c:\users\c00215747\documents\3d-project\3d vector and matrix project\3d vector and matrix project\vector3d.h(29): error C2801: 'Vector3D::operator *' must be a non-static member
+c:\users\c00215747\documents\3d-project\3d vector and matrix project\3d vector and matrix project\vector3d.h(30): error C2801: 'Vector3D::operator *' must be a non-static member
+c:\users\c00215747\documents\3d-project\3d vector and matrix project\3d vector and matrix project\vector3d.h(31): error C2801: 'Vector3D::operator *' must be a non-static member
+c:\users\c00215747\documents\3d-project\3d vector and matrix project\3d vector and matrix project\vector3d.h(32): error C2801: 'Vector3D::operator *' must be a non-static member
+c:\users\c00215747\documents\3d-project\3d vector and matrix project\3d vector and matrix project\vector3d.h(33): error C2801: 'Vector3D::operator ^' must be a non-static member
+c:\users\c00215747\documents\3d-project\3d vector and matrix project\3d vector and matrix project\matrix3.h(22): error C2801: 'Matrix3::operator *' must be a non-static member
+c:\users\c00215747\documents\3d-project\3d vector and matrix project\3d vector and matrix project\matrix3.h(23): error C2801: 'Matrix3::operator *' must be a non-static member
+c:\users\c00215747\documents\3d-project\3d vector and matrix project\3d vector and matrix project\matrix3.h(25): error C2801: 'Matrix3::operator +' must be a non-static member
+c:\users\c00215747\documents\3d-project\3d vector and matrix project\3d vector and matrix project\matrix3.h(26): error C2801: 'Matrix3::operator -' must be a non-static member
+c:\users\c00215747\documents\3d-project\3d vector and matrix project\3d vector and matrix project\matrix3.h(27): error C2801: 'Matrix3::operator *' must be a non-static member
+c:\users\c00215747\documents\3d-project\3d vector and matrix project\3d vector and matrix project\matrix3.h(28): error C2801: 'Matrix3::operator *' must be a non-static member
+c:\users\c00215747\documents\3d-project\3d vector and matrix project\3d vector and matrix project\matrix3.cpp(55): error C3867: 'Vector3D::Y': non-standard syntax; use '&' to create a pointer to member
+c:\users\c00215747\documents\3d-project\3d vector and matrix project\3d vector and matrix project\matrix3.cpp(55): error C2297: '*': illegal, right operand has type 'double (__thiscall Vector3D::* )(void)'
+c:\users\c00215747\documents\3d-project\3d vector and matrix project\3d vector and matrix project\matrix3.cpp(57): error C2440: '<function-style-cast>': cannot convert from 'initializer list' to 'Vector3D'
+  c:\users\c00215747\documents\3d-project\3d vector and matrix project\3d vector and matrix project\matrix3.cpp(57): note: No constructor could take the source type, or constructor overload resolution was ambiguous
+c:\users\c00215747\documents\3d-project\3d vector and matrix project\3d vector and matrix project\matrix3.cpp(102): error C2264: 'Vector3D::operator *': error in function definition or declaration; function not called
+c:\users\c00215747\documents\3d-project\3d vector and matrix project\3d vector and matrix project\matrix3.cpp(102): error C2088: '*': illegal for class
+c:\users\c00215747\documents\3d-project\3d vector and matrix project\3d vector and matrix project\matrix3.cpp(103): error C2264: 'Vector3D::operator *': error in function definition or declaration; function not called
+c:\users\c00215747\documents\3d-project\3d vector and matrix project\3d vector and matrix project\matrix3.cpp(103): error C2088: '*': illegal for class
+c:\users\c00215747\documents\3d-project\3d vector and matrix project\3d vector and matrix project\matrix3.cpp(104): error C2264: 'Vector3D::operator *': error in function definition or declaration; function not called
+c:\users\c00215747\documents\3d-project\3d vector and matrix project\3d vector and matrix project\matrix3.cpp(104): error C2088: '*': illegal for class
+c:\users\c00215747\documents\3d-project\3d vector and matrix project\3d vector and matrix project\matrix3.cpp(106): error C2264: 'Vector3D::operator *': error in function definition or declaration; function not called
+c:\users\c00215747\documents\3d-project\3d vector and matrix project\3d vector and matrix project\matrix3.cpp(106): error C2088: '*': illegal for class
+c:\users\c00215747\documents\3d-project\3d vector and matrix project\3d vector and matrix project\matrix3.cpp(107): error C2264: 'Vector3D::operator *': error in function definition or declaration; function not called
+c:\users\c00215747\documents\3d-project\3d vector and matrix project\3d vector and matrix project\matrix3.cpp(107): error C2088: '*': illegal for class
+c:\users\c00215747\documents\3d-project\3d vector and matrix project\3d vector and matrix project\matrix3.cpp(108): error C2264: 'Vector3D::operator *': error in function definition or declaration; function not called
+c:\users\c00215747\documents\3d-project\3d vector and matrix project\3d vector and matrix project\matrix3.cpp(108): error C2088: '*': illegal for class
+c:\users\c00215747\documents\3d-project\3d vector and matrix project\3d vector and matrix project\matrix3.cpp(110): error C2264: 'Vector3D::operator *': error in function definition or declaration; function not called
+c:\users\c00215747\documents\3d-project\3d vector and matrix project\3d vector and matrix project\matrix3.cpp(110): error C2088: '*': illegal for class
+c:\users\c00215747\documents\3d-project\3d vector and matrix project\3d vector and matrix project\matrix3.cpp(111): error C2264: 'Vector3D::operator *': error in function definition or declaration; function not called
+c:\users\c00215747\documents\3d-project\3d vector and matrix project\3d vector and matrix project\matrix3.cpp(111): error C2088: '*': illegal for class
+c:\users\c00215747\documents\3d-project\3d vector and matrix project\3d vector and matrix project\matrix3.cpp(112): error C2264: 'Vector3D::operator *': error in function definition or declaration; function not called
+c:\users\c00215747\documents\3d-project\3d vector and matrix project\3d vector and matrix project\matrix3.cpp(112): error C2088: '*': illegal for class
+  main.cpp
+  Generating Code...

@@ -15,11 +15,24 @@ public:
 	Vector3D(double x, double y, double z);
 	~Vector3D();
 
-	double length()const;
-	double lengthSquared()const;
-	double angleBetween(const Vector3D other)const;
-	Vector3D unit() const;
+	double X();
+	double Y();
+	double Z();
+	
+	double length();
+	double lengthSquared();
 	void normalise();
+
+	static Vector3D operator +(Vector3D v1, Vector3D v2);
+	static Vector3D operator -(Vector3D v1, Vector3D v2);
+	static Vector3D operator -(Vector3D v);
+	static double operator *(Vector3D v1, Vector3D v2);
+	static Vector3D operator *(double k, Vector3D v);
+	static Vector3D operator *(float k, Vector3D v);
+	static Vector3D operator *(int k, Vector3D v);
+	static Vector3D operator ^(Vector3D v1, Vector3D v2);
+
+	std::string ToString();
 
 private:
 	double m_x;
