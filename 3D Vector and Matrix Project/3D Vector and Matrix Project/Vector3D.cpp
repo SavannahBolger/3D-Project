@@ -94,6 +94,11 @@ Vector3D Vector3D::operator^(Vector3D v)
 	return Vector3D(m_y * v.m_z - m_z * v.m_y, m_z * v.m_x - m_x * v.m_z, m_x * v.m_y - m_y * v.m_x);
 }
 
+Vector3D Vector3D::operator/(Vector3D v)
+{
+	return Vector3D(m_x / v.m_x, m_y / v.m_y, m_z / v.m_z);
+}
+
 std::string Vector3D::ToString()
 {
 	char tmpbuf[256];

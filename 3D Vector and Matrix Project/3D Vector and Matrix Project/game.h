@@ -26,6 +26,7 @@ private:
 	sf::RenderWindow m_window;
 	sf::VertexArray m_triangle;
 	sf::Vertex m_vertexs[3]; // only used to initialise the array 
+	Vector3D origin{0,0,0};
 	Vector3D originalPosition[3];
 	Vector3D currentPosition[3];
 	Vector3D activeTranslation{0,-1,0};

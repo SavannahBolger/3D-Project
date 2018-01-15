@@ -31,6 +31,7 @@ public:
 	Vector3D operator *(float k);
 	Vector3D operator *(int k);
 	Vector3D operator ^(Vector3D v);
+	Vector3D operator /(Vector3D v);
 
 	std::string ToString();
 

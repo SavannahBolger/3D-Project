@@ -78,6 +78,13 @@ Matrix3 Matrix3::operator*(Matrix3 M)
 				   m31 * M.m11 + m32 * M.m21 + m33 * M.m31, m31 * M.m12 + m32 * M.m22 + m33 * M.m32, m31 * M.m13 + m32 * M.m23 + m33 * M.m33);
 }
 
+Vector3D Matrix3::operator/(Vector3D V)
+{
+	return Vector3D(m11 / V.X() + m12 / V.Y() + m13 / V.Z(),
+		m21 / V.X() + m22 / V.Y() + m23 / V.Z(),
+		m31 / V.X() + m32 / V.Y() + m33 / V.Z());
+}
+
 
 
 Matrix3 Matrix3::transpose()

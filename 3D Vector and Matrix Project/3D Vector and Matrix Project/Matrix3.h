@@ -24,6 +24,7 @@ public:
 	Vector3D operator *(Vector3D V);
 	Matrix3 operator *(double scale) ;
 	Matrix3 operator *(Matrix3 M);
+	Vector3D operator /(Vector3D V);
 
 	Matrix3 transpose();
 	double determinant();

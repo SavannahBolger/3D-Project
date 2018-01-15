@@ -17,24 +17,23 @@
 #include "game.h"
 #include <iostream>
 
-
-
 Game::Game() :
 	m_window{ sf::VideoMode{800, 600}, "SMFL Game" },
 	m_triangle{ sf::Triangles },
 	m_vertexs{
-		{ { 400,100 },CORNFLOWER_BLUE },
-		{ { 100,550 },CORNFLOWER_BLUE },
-		{ { 700,550 },CORNFLOWER_BLUE }
-		}
+		{ { 400,290 },CORNFLOWER_BLUE },
+		{ { 390,310 },CORNFLOWER_BLUE },
+		{ { 410,310 },CORNFLOWER_BLUE }}
 
-{	
+{
 
 	for (size_t i = 0; i < 3; i++)
 	{
 		m_triangle.append(m_vertexs[i]);
-	}	
-	
+		originalPosition[i] = Vector3D(m_vertexs[i].position.x, m_vertexs[i].position.y,0);
+		currentPosition[i] = originalPosition[i];
+	}
+
 }
 
 void Game::LoadContent()
@@ -79,9 +78,9 @@ void Game::update(sf::Time)
 	// a set of MyVector3Ds and then update the vertex array
 	for (size_t i = 0; i < 3; i++)
 	{
-		currentPosition[i] = originalPosition[i];
-		
 		movement();
+		m_triangle[i].position.x = currentPosition[i].X();
+		m_triangle[i].position.y = currentPosition[i].Y();
 	}
 	
 }
@@ -95,16 +94,58 @@ void Game::movement()
 			xRotation = Matrix3::rotationX(0.0349066);//angle set to 2 degrees
 			for (size_t i = 0; i < 3; i++)
 			{
+				currentPosition[i] = Matrix3::translation(activeTranslation) * currentPosition[i];
 				currentPosition[i] = xRotation * currentPosition[i];
-				m_triangle[i].position.x = currentPosition[i].X();
-				m_triangle[i].position.y = currentPosition[i].Y();
+				currentPosition[i] = Matrix3::translation(activeTranslation) * currentPosition[i];
 			}
 		}
-		if (sf::Keyboard::isKeyPressed(sf::Keyboard::T))
+		else if (sf::Keyboard::isKeyPressed(sf::Keyboard::X) && (sf::Keyboard::isKeyPressed(sf::Keyboard::LShift)))
+		{
+			xRotation = Matrix3::rotationX(-0.0349066);//angle set to 2 degrees
+			for (size_t i = 0; i < 3; i++)
+			{
+				currentPosition[i] = xRotation * currentPosition[i];
+			}
+		}
+		else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Y) && !(sf::Keyboard::isKeyPressed(sf::Keyboard::LShift)))
+		{
+			yRotation = Matrix3::rotationY(0.0349066);//angle set to 2 degrees
+			for (size_t i = 0; i < 3; i++)
+			{
+				currentPosition[i] = yRotation * currentPosition[i];
+			}
+		}
+		else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Y) && (sf::Keyboard::isKeyPressed(sf::Keyboard::LShift)))
+		{
+			yRotation = Matrix3::rotationY(-0.0349066);//angle set to 2 degrees
+			for (size_t i = 0; i < 3; i++)
+			{
+				currentPosition[i] = yRotation * currentPosition[i];
+			}
+		}
+		else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Z) && !(sf::Keyboard::isKeyPressed(sf::Keyboard::LShift)))
+		{
+			zRotation = Matrix3::rotationZ(0.0349066);//angle set to 2 degrees
+			for (size_t i = 0; i < 3; i++)
+			{
+				currentPosition[i] = zRotation * currentPosition[i];
+			}
+		}
+		else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Z) && (sf::Keyboard::isKeyPressed(sf::Keyboard::LShift)))
+		{
+			zRotation = Matrix3::rotationZ(-0.0349066);//angle set to 2 degrees
+			for (size_t i = 0; i < 3; i++)
+			{
+				currentPosition[i] = zRotation * currentPosition[i];
+			}
+		}
+		else if (sf::Keyboard::isKeyPressed(sf::Keyboard::T))
 		{
 			currentPosition[i] = Matrix3::translation(activeTranslation) * originalPosition[i];
-			m_triangle[i].position.x = currentPosition[i].X();
-			m_triangle[i].position.y = currentPosition[i].Y();
+		}
+		else
+		{
+			currentPosition[i] = originalPosition[i];
 		}
 	}
 }
