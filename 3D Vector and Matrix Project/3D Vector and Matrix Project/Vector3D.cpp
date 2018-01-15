@@ -54,52 +54,50 @@ void Vector3D::normalise()
 	}
 }
 
-Vector3D Vector3D::operator+(Vector3D v1, Vector3D v2)
+Vector3D Vector3D::operator+(Vector3D v)
 {
-	return Vector3D(v1.m_x + v2.m_x, v1.m_y + v2.m_y, v1.m_z + v2.m_z);
-}
-
-Vector3D Vector3D::operator-(Vector3D v1, Vector3D v2)
-{
-	return Vector3D(v1.m_x - v2.m_x, v1.m_y - v2.m_y, v1.m_z - v2.m_z);
+	return Vector3D(m_x + v.m_x, m_y + v.m_y, m_z + v.m_z);
 }
 
 Vector3D Vector3D::operator-(Vector3D v)
 {
-	Vector3D V1 = Vector3D();
-	V1.m_x = -v.m_x;
-	V1.m_y = -v.m_y;
-	V1.m_z = -v.m_z;
-	return V1;
+	return Vector3D(m_x - v.m_x, m_y - v.m_y, m_z - v.m_z);
 }
 
-double Vector3D::operator*(Vector3D v1, Vector3D v2)
+Vector3D Vector3D::operator-()
 {
-	return (v1.m_x * v2.m_x + v1.m_y * v2.m_y + v1.m_z * v2.m_z);
+	return Vector3D(-m_x, -m_y, -m_z);
 }
 
-Vector3D Vector3D::operator*(double k, Vector3D v)
+double Vector3D::operator*(Vector3D v)
 {
-	return Vector3D(v.m_x * k, v.m_y * k, v.m_z * k);
+	return (m_x * v.m_x + m_y * v.m_y + m_z * v.m_z);
 }
 
-Vector3D Vector3D::operator*(float k, Vector3D v)
+Vector3D Vector3D::operator*(double k)
 {
-	return Vector3D(v.m_x * k, v.m_y * k, v.m_z * k);
+	return Vector3D(m_x * k, m_y * k, m_z * k);
 }
 
-Vector3D Vector3D::operator*(int k, Vector3D v)
+Vector3D Vector3D::operator*(float k)
 {
-	return Vector3D(v.m_x * k, v.m_y * k, v.m_z * k);
+	return Vector3D(m_x * k, m_y * k, m_z * k);
 }
 
-Vector3D Vector3D::operator^(Vector3D v1, Vector3D v2)
+Vector3D Vector3D::operator*(int k)
 {
-	return Vector3D(v1.m_y * v2.m_z - v1.m_z * v2.m_y, v1.m_z * v2.m_x - v1.m_x * v2.m_z, v1.m_x * v2.m_y - v1.m_y * v2.m_x);
+	return Vector3D(m_x * k, m_y * k, m_z * k);
+}
+
+Vector3D Vector3D::operator^(Vector3D v)
+{
+	return Vector3D(m_y * v.m_z - m_z * v.m_y, m_z * v.m_x - m_x * v.m_z, m_x * v.m_y - m_y * v.m_x);
 }
 
 std::string Vector3D::ToString()
 {
-	return std::string();
+	char tmpbuf[256];
+	sprintf_s(tmpbuf, "[ %g, %g, %g ]", m_x, m_y, m_z);
+	return tmpbuf;
 }
 

@@ -23,14 +23,14 @@ public:
 	double lengthSquared();
 	void normalise();
 
-	static Vector3D operator +(Vector3D v1, Vector3D v2);
-	static Vector3D operator -(Vector3D v1, Vector3D v2);
-	static Vector3D operator -(Vector3D v);
-	static double operator *(Vector3D v1, Vector3D v2);
-	static Vector3D operator *(double k, Vector3D v);
-	static Vector3D operator *(float k, Vector3D v);
-	static Vector3D operator *(int k, Vector3D v);
-	static Vector3D operator ^(Vector3D v1, Vector3D v2);
+	Vector3D operator +(Vector3D v);
+	Vector3D operator -(Vector3D v);
+	Vector3D operator -();
+	double operator *(Vector3D v);
+	Vector3D operator *(double k);
+	Vector3D operator *(float k);
+	Vector3D operator *(int k);
+	Vector3D operator ^(Vector3D v);
 
 	std::string ToString();
 

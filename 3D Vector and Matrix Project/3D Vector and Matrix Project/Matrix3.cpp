@@ -43,89 +43,58 @@ Matrix3::~Matrix3()
 {
 }
 
-Vector3D Matrix3::operator*(Matrix3 M, Vector3D V)
+Matrix3 Matrix3::operator+(Matrix3 M)
 {
-	return Vector3D(M.m11 * V.X() + M.m12 * V.Y() + M.m13 * V.Z(),
-		            M.m21 * V.X() + M.m22 * V.Y() + M.m23 * V.Z(),
-		            M.m31 * V.X() + M.m32 * V.Y() + M.m33 * V.Z());
+	return Matrix3(m11 + M.m11, m12 + M.m12, m13 + M.m13,
+				   m21 + M.m21, m22 + M.m22, m23 + M.m23,
+				   m31 + M.m31, m32 + M.m32, m33 + M.m33);
 }
 
-Vector3D Matrix3::operator*(Vector3D V, Matrix3 M)
+Matrix3 Matrix3::operator-(Matrix3 M)
 {
-	return Vector3D(M.m11 * V.X() + M.m21 * V.Y + M.m31 * V.Z(),
-					M.m12 * V.X() + M.m22 * V.Y() + M.m32 * V.Z(),
-					M.m13 * V.X() + M.m23 * V.Y() + M.m33 * V.Z());
+	return Matrix3(m11 - M.m11, m12 - M.m12, m13 - M.m13,
+				   m21 - M.m21, m22 - M.m22, m23 - M.m23,
+				   m31 - M.m31, m32 - M.m32, m33 - M.m33);
 }
 
-Matrix3 Matrix3::transpose(Matrix3 M)
+Vector3D Matrix3::operator*(Vector3D V)
 {
-	return Matrix3(M.m11, M.m12, M.m13, 
-				   M.m21, M.m22, M.m23, 
-				   M.m31, M.m32, M.m33);
+	return Vector3D(m11 * V.X() + m12 * V.Y() + m13 * V.Z(),
+				    m21 * V.X() + m22 * V.Y() + m23 * V.Z(),
+				    m31 * V.X() + m32 * V.Y() + m33 * V.Z());
 }
 
-Matrix3 Matrix3::operator+(Matrix3 M1, Matrix3 M2)
+Matrix3 Matrix3::operator*(double scale)
 {
-	return Matrix3(M1.m11 + M2.m11, M1.m12 + M2.m12, M1.m13 + M2.m13,
-				   M1.m21 + M2.m21, M1.m22 + M2.m22, M1.m23 + M2.m23,
-				   M1.m31 + M2.m31, M1.m32 + M2.m32, M1.m33 + M2.m33);
+	return Matrix3(m11 * scale, m12 * scale, m13 * scale,
+				   m21 * scale, m22 * scale, m23 * scale,
+				   m31 * scale, m32 * scale, m33 * scale);
 }
 
-Matrix3 Matrix3::operator-(Matrix3 M1, Matrix3 M2)
+Matrix3 Matrix3::operator*(Matrix3 M)
 {
-	return Matrix3(M1.m11 - M2.m11, M1.m12 - M2.m12, M1.m13 - M2.m13,
-				   M1.m21 - M2.m21, M1.m22 - M2.m22, M1.m23 - M2.m23,
-				   M1.m31 - M2.m31, M1.m32 - M2.m32, M1.m33 - M2.m33);
+	return Matrix3(m11 * M.m11 + m12 * M.m21 + m13 * M.m31, m11 * M.m12 + m12 * M.m22 + m13 * M.m32, m11 * M.m13 + m12 * M.m23 + m13 * M.m33,
+				   m21 * M.m11 + m22 * M.m21 + m23 * M.m31, m21 * M.m12 + m22 * M.m22 + m23 * M.m32, m21 * M.m13 + m22 * M.m23 + m23 * M.m33,
+				   m31 * M.m11 + m32 * M.m21 + m33 * M.m31, m31 * M.m12 + m32 * M.m22 + m33 * M.m32, m31 * M.m13 + m32 * M.m23 + m33 * M.m33);
 }
 
-Matrix3 Matrix3::operator*(double x, Matrix3 M)
+
+
+Matrix3 Matrix3::transpose()
 {
-	Matrix3 answer = Matrix3();
-
-	answer.m11 = M.m11 * x;
-	answer.m12 = M.m12 * x;
-	answer.m13 = M.m13 * x;
-	answer.m21 = M.m21 * x;
-	answer.m22 = M.m22 * x;
-	answer.m23 = M.m23 * x;
-	answer.m31 = M.m31 * x;
-	answer.m32 = M.m32 * x;
-	answer.m33 = M.m33 * x;
-
-	return answer;
+	return Matrix3();
 }
 
-Matrix3 Matrix3::operator*(Matrix3 M1, Matrix3 M2)
+double Matrix3::determinant()
 {
-	Matrix3 answer = Matrix3();
-
-	answer.m11 = M1.row(0) * M2.column(0);
-	answer.m12 = M1.row(0) * M2.column(1);
-	answer.m13 = M1.row(0) * M2.column(2);
-
-	answer.m21 = M1.row(1) * M2.column(0);
-	answer.m22 = M1.row(1) * M2.column(1);
-	answer.m23 = M1.row(1) * M2.column(2);
-
-	answer.m31 = M1.row(2) * M2.column(0);
-	answer.m32 = M1.row(2) * M2.column(1);
-	answer.m33 = M1.row(2) * M2.column(2);
-
-	return answer;
+	return (m11 * (m22 * m33 - m32 * m23) - m21 * (m33 * m12 - m32 * m13) + m31 * (m23 * m12 - m22 * m13));
 }
 
-double Matrix3::determinant(Matrix3 M)
+Matrix3 Matrix3::inverse()
 {
-	return (M.m11 * (M.m22 * M.m33 - M.m32 * M.m23) - M.m21 * (M.m33 * M.m12 - M.m32 * M.m13) + M.m31 * (M.m23 * M.m12 - M.m22 * M.m13));
-}
-
-Matrix3 Matrix3::inverse(Matrix3 M)
-{
-	double det = determinant(M);
-
-	return Matrix3(M.m33 * M.m22 - M.m32 * M.m23, M.m32 * M.m13 - M.m33 * M.m12, M.m23 * M.m12 - M.m22 * M.m13,
-				   M.m31 * M.m23 - M.m33 * M.m21, M.m33 * M.m11 - M.m31 * M.m13, M.m21 * M.m13 - M.m23 * M.m11,
-				   M.m32 * M.m21 - M.m31 * M.m22, M.m31 * M.m12 - M.m32 * M.m11, M.m22 * M.m11 - M.m21 * M.m12);
+	return Matrix3(m33 * m22 - m32 * m23, m32 * m13 - m33 * m12, m23 * m12 - m22 * m13,
+				   m31 * m23 - m33 * m21, m33 * m11 - m31 * m13, m21 * m13 - m23 * m11,
+				   m32 * m21 - m31 * m22, m31 * m12 - m32 * m11, m22 * m11 - m21 * m12);
 }
 
 Vector3D Matrix3::row(int row)
@@ -154,4 +123,46 @@ Vector3D Matrix3::column(int column)
 		return Vector3D(m13, m23, m33);
 	}
 	return Vector3D();
+}
+
+Matrix3 Matrix3::rotationZ(double angleRadians)
+{
+	return Matrix3(cos(angleRadians), -sin(angleRadians), 0,
+				   sin(angleRadians), cos(angleRadians), 0,
+				   0, 0, 1);
+}
+
+Matrix3 Matrix3::rotationY(double angleRadians)
+{
+	return Matrix3(cos(angleRadians), 0, sin(angleRadians),
+				   0, 1, 0,
+				   -sin(angleRadians), 0, cos(angleRadians));
+}
+
+Matrix3 Matrix3::rotationX(double angleRadians)
+{
+	return Matrix3(1, 0, 0,
+				   0, cos(angleRadians), -sin(angleRadians),
+				   0, sin(angleRadians), cos(angleRadians));
+}
+
+Matrix3 Matrix3::translation(Vector3D displacement)
+{
+	return Matrix3(1, 0, displacement.X(),
+				   0, 1, displacement.Y(),
+				   0, 0, 1);
+}
+
+Matrix3 Matrix3::scale(double scalingfactor)
+{
+	return Matrix3(scalingfactor, 0, 0,
+				   0, scalingfactor, 0,
+				   0, 0, scalingfactor);
+}
+
+std::string Matrix3::ToString()
+{
+	char tmpbuf[512];
+	sprintf_s(tmpbuf, "{ [ %g, %g, %g ] [ %g, %g, %g ] [ %g, %g, %g ] }", m11, m12, m13, m21, m22, m23, m31, m32, m33);
+	return tmpbuf;
 }

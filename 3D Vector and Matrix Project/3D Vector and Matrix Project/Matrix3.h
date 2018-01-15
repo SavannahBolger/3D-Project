@@ -14,23 +14,31 @@ class Matrix3
 public:
 	Matrix3();
 	Matrix3(double a11, double a12, double a13,
-		double a21, double a22, double a23,
-		double a31, double a32, double a33);
+			double a21, double a22, double a23,
+			double a31, double a32, double a33);
 	Matrix3(Vector3D row1, Vector3D row2, Vector3D row3);
 	~Matrix3();
 
-	static Vector3D operator *(Matrix3 M, Vector3D V);
-	static Vector3D operator *(Vector3D V, Matrix3 M);
-	static Matrix3 transpose(Matrix3 M);
-	static Matrix3 operator +(Matrix3 M1, Matrix3 M2);
-	static Matrix3 operator -(Matrix3 M1, Matrix3 M2);
-	static Matrix3 operator *(double x, Matrix3 M);
-	static Matrix3 operator *(Matrix3 M1, Matrix3 M2);
+	Matrix3 operator +(Matrix3 M);
+	Matrix3 operator -(Matrix3 M);
+	Vector3D operator *(Vector3D V);
+	Matrix3 operator *(double scale) ;
+	Matrix3 operator *(Matrix3 M);
 
-	static double determinant(Matrix3 M);
-	static Matrix3 inverse(Matrix3 M);
+	Matrix3 transpose();
+	double determinant();
+	Matrix3 inverse();
 	Vector3D row(int row);
 	Vector3D column(int column);
+
+	static Matrix3 rotationZ(double angleRadians);
+	static Matrix3 rotationY(double angleRadians);
+	static Matrix3 rotationX(double angleRadians);
+
+	static Matrix3 translation(Vector3D displacement);
+	static Matrix3 scale(double scalingfactor);
+
+	std::string ToString();
 
 private:
 	double m11;

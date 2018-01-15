@@ -6,8 +6,13 @@
 /// </summary>
 
 #include <iostream>
+#include "game.h"
 
 int main()
 {
+	Game game;
+	game.LoadContent();
+	game.run();
+
 	return 0;
 }
