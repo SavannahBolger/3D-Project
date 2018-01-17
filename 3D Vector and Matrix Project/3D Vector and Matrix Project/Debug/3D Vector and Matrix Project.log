@@ -1,5 +1,5 @@
 ﻿  game.cpp
-c:\users\c00215747\documents\3d-project\3d vector and matrix project\3d vector and matrix project\game.cpp(82): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-c:\users\c00215747\documents\3d-project\3d vector and matrix project\3d vector and matrix project\game.cpp(83): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-  3D Vector and Matrix Project.vcxproj -> C:\Users\C00215747\Documents\3D-Project\3D Vector and Matrix Project\Debug\3D Vector and Matrix Project.exe
-  3D Vector and Matrix Project.vcxproj -> C:\Users\C00215747\Documents\3D-Project\3D Vector and Matrix Project\Debug\3D Vector and Matrix Project.pdb (Partial PDB)
+d:\college projects\second year\gameplay\3d-project\3d vector and matrix project\3d vector and matrix project\game.cpp(82): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+d:\college projects\second year\gameplay\3d-project\3d vector and matrix project\3d vector and matrix project\game.cpp(83): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+  3D Vector and Matrix Project.vcxproj -> D:\College Projects\Second Year\Gameplay\3D-Project\3D Vector and Matrix Project\Debug\3D Vector and Matrix Project.exe
+  3D Vector and Matrix Project.vcxproj -> D:\College Projects\Second Year\Gameplay\3D-Project\3D Vector and Matrix Project\Debug\3D Vector and Matrix Project.pdb (Partial PDB)

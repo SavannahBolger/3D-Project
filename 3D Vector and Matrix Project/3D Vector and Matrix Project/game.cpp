@@ -94,9 +94,7 @@ void Game::movement()
 			xRotation = Matrix3::rotationX(0.0349066);//angle set to 2 degrees
 			for (size_t i = 0; i < 3; i++)
 			{
-				currentPosition[i] = Matrix3::translation(activeTranslation) * currentPosition[i];
 				currentPosition[i] = xRotation * currentPosition[i];
-				currentPosition[i] = Matrix3::translation(activeTranslation) * currentPosition[i];
 			}
 		}
 		else if (sf::Keyboard::isKeyPressed(sf::Keyboard::X) && (sf::Keyboard::isKeyPressed(sf::Keyboard::LShift)))
@@ -139,9 +137,25 @@ void Game::movement()
 				currentPosition[i] = zRotation * currentPosition[i];
 			}
 		}
-		else if (sf::Keyboard::isKeyPressed(sf::Keyboard::T))
+		else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
 		{
-			currentPosition[i] = Matrix3::translation(activeTranslation) * originalPosition[i];
+			currentPosition[i] = currentPosition[i] - (Matrix3::translation(activeTranslation) * currentPosition[i]);
+		}
+		else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
+		{
+			currentPosition[i] = currentPosition[i] + (Matrix3::translation(activeTranslation) * currentPosition[i]);
+		}
+		else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
+		{
+			currentPosition[i] = currentPosition[i] - (Matrix3::translation(activeTranslation) * currentPosition[i]);
+		}
+		else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
+		{
+			currentPosition[i] = currentPosition[i] + (Matrix3::translation(activeTranslation) * currentPosition[i]);
+		}
+		else if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
+		{
+			currentPosition[i] = (Matrix3::scale(1.5) * originalPosition[i]);
 		}
 		else
 		{
