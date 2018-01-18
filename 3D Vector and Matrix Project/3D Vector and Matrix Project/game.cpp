@@ -91,7 +91,7 @@ void Game::movement()
 	{
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::X) && !(sf::Keyboard::isKeyPressed(sf::Keyboard::LShift)))
 		{
-			xRotation = Matrix3::rotationX(0.0349066);//angle set to 2 degrees
+			xRotation = Matrix3::rotationX(0.00174533);//angle set to 2 degrees
 			for (size_t i = 0; i < 3; i++)
 			{
 				currentPosition[i] = xRotation * currentPosition[i];
@@ -99,7 +99,7 @@ void Game::movement()
 		}
 		else if (sf::Keyboard::isKeyPressed(sf::Keyboard::X) && (sf::Keyboard::isKeyPressed(sf::Keyboard::LShift)))
 		{
-			xRotation = Matrix3::rotationX(-0.0349066);//angle set to 2 degrees
+			xRotation = Matrix3::rotationX(-0.00174533);//angle set to 2 degrees
 			for (size_t i = 0; i < 3; i++)
 			{
 				currentPosition[i] = xRotation * currentPosition[i];
@@ -107,7 +107,7 @@ void Game::movement()
 		}
 		else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Y) && !(sf::Keyboard::isKeyPressed(sf::Keyboard::LShift)))
 		{
-			yRotation = Matrix3::rotationY(0.0349066);//angle set to 2 degrees
+			yRotation = Matrix3::rotationY(0.00174533);//angle set to 2 degrees
 			for (size_t i = 0; i < 3; i++)
 			{
 				currentPosition[i] = yRotation * currentPosition[i];
@@ -115,7 +115,7 @@ void Game::movement()
 		}
 		else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Y) && (sf::Keyboard::isKeyPressed(sf::Keyboard::LShift)))
 		{
-			yRotation = Matrix3::rotationY(-0.0349066);//angle set to 2 degrees
+			yRotation = Matrix3::rotationY(-0.00174533);//angle set to 2 degrees
 			for (size_t i = 0; i < 3; i++)
 			{
 				currentPosition[i] = yRotation * currentPosition[i];
@@ -123,7 +123,7 @@ void Game::movement()
 		}
 		else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Z) && !(sf::Keyboard::isKeyPressed(sf::Keyboard::LShift)))
 		{
-			zRotation = Matrix3::rotationZ(0.0349066);//angle set to 2 degrees
+			zRotation = Matrix3::rotationZ(0.00174533);//angle set to 2 degrees
 			for (size_t i = 0; i < 3; i++)
 			{
 				currentPosition[i] = zRotation * currentPosition[i];
@@ -131,7 +131,7 @@ void Game::movement()
 		}
 		else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Z) && (sf::Keyboard::isKeyPressed(sf::Keyboard::LShift)))
 		{
-			zRotation = Matrix3::rotationZ(-0.0349066);//angle set to 2 degrees
+			zRotation = Matrix3::rotationZ(-0.00174533);//angle set to 2 degrees
 			for (size_t i = 0; i < 3; i++)
 			{
 				currentPosition[i] = zRotation * currentPosition[i];
@@ -139,19 +139,19 @@ void Game::movement()
 		}
 		else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
 		{
-			currentPosition[i] = currentPosition[i] - (Matrix3::translation(activeTranslation) * currentPosition[i]);
+			currentPosition[i] =(Matrix3::translation(activeTranslation) * currentPosition[i]) -  Vector3D(0, 1, 0);
 		}
 		else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
 		{
-			currentPosition[i] = currentPosition[i] + (Matrix3::translation(activeTranslation) * currentPosition[i]);
+			currentPosition[i] = (Matrix3::translation(activeTranslation) * currentPosition[i]) + Vector3D(0, 1, 0);
 		}
 		else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
 		{
-			currentPosition[i] = currentPosition[i] - (Matrix3::translation(activeTranslation) * currentPosition[i]);
+			currentPosition[i] = (Matrix3::translation(activeTranslation) * currentPosition[i]) - Vector3D(1,0, 0);
 		}
 		else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
 		{
-			currentPosition[i] = currentPosition[i] + (Matrix3::translation(activeTranslation) * currentPosition[i]);
+			currentPosition[i] = (Matrix3::translation(activeTranslation) * currentPosition[i]) + Vector3D(1, 0, 0);
 		}
 		else if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
 		{
