@@ -21,9 +21,9 @@ Game::Game() :
 	m_window{ sf::VideoMode{800, 600}, "SMFL Game" },
 	m_triangle{ sf::Triangles },
 	m_vertexs{
-		{ { 400,290 },CORNFLOWER_BLUE },
-		{ { 390,310 },CORNFLOWER_BLUE },
-		{ { 410,310 },CORNFLOWER_BLUE }}
+		{ { 0,-30 },CORNFLOWER_BLUE },
+		{ { -30,15 },CORNFLOWER_BLUE },
+		{ { 30,15 },CORNFLOWER_BLUE }}
 
 {
 
@@ -79,8 +79,8 @@ void Game::update(sf::Time)
 	for (size_t i = 0; i < 3; i++)
 	{
 		movement();
-		m_triangle[i].position.x = currentPosition[i].X();
-		m_triangle[i].position.y = currentPosition[i].Y();
+		m_triangle[i].position = sf::Vector2f(currentPosition[i].X() + 400, currentPosition[i].Y() + 300);
+		
 	}
 	
 }
@@ -94,7 +94,7 @@ void Game::movement()
 			xRotation = Matrix3::rotationX(0.00174533);//angle set to 2 degrees
 			for (size_t i = 0; i < 3; i++)
 			{
-				currentPosition[i] = xRotation * currentPosition[i];
+				currentPosition[i] = (xRotation * currentPosition[i]);
 			}
 		}
 		else if (sf::Keyboard::isKeyPressed(sf::Keyboard::X) && (sf::Keyboard::isKeyPressed(sf::Keyboard::LShift)))
